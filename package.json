@@ -1,0 +1,25 @@
+{
+    "dependencies": {},
+    "name": "grocery-planner",
+    "version": "1.0.0",
+    "main": "app.js",
+    "devDependencies": {
+        "gulp": "^4.0.2",
+        "serve": "^14.2.0",
+        "gulp-autoprefixer": "^8.0.0",
+        "gulp-sass": "^5.1.0",
+        "gulp-sourcemaps": "^3.0.0",
+        "prettier": "^2.8.8",
+        "sass": "^1.62.1"
+    },
+    "scripts": {
+        "gulp-styles": "npx gulp styles",
+        "gulp-watch": "npx gulp watch",
+        "prettier-check": "npx prettier --check .",
+        "prettier-fix": "npx prettier --write .",
+        "start": "npx serve"
+    },
+    "author": "",
+    "license": "ISC",
+    "description": ""
+}

@@ -1,0 +1,268 @@
+@use './variables.scss' as var;
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400,700&display=swap');
+
+$fontSize: 0.875rem;
+
+$padding: 1rem;
+$margin: 2rem;
+$width: 100vw;
+$height: 100vh;
+
+*,
+::after,
+::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var.$fontSecondary;
+    background: var.$colorBlack;
+    color: var.$colorWhite;
+    line-height: var.$lineHeight;
+    font-size: $fontSize;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    margin-bottom: 0.75rem;
+    text-transform: capitalize;
+    letter-spacing: var.$spacing;
+    font-family: var.$fontPrimary;
+    line-height: 0.825 * var.$lineHeight;
+}
+
+h1 {
+    font-size: 3.5 * $fontSize;
+}
+
+h2 {
+    font-size: 2.5 * $fontSize;
+}
+
+h3 {
+    font-size: 1.5 * $fontSize;
+}
+
+h4 {
+    font-size: $fontSize;
+}
+
+p {
+    font-size: 1.5 * $fontSize;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.375 * $padding 0.75 * $padding;
+    text-transform: uppercase;
+    font-size: $fontSize;
+    color: var.$colorBlack;
+    letter-spacing: var.$spacing;
+    transition: var.$transition;
+    border: 2px solid var.$colorBlack;
+    border-radius: var.$radius;
+    box-shadow: var.$darkShadow;
+    background: transparent;
+    cursor: pointer;
+
+    &:hover {
+        color: var.$colorWhite;
+        background: var.$colorBlack;
+    }
+}
+
+.section {
+    padding: 5 * $padding 0;
+}
+
+.section-center {
+    width: 0.9 * $width;
+    margin: 4 * $margin auto 0;
+}
+
+main {
+    min-height: $height;
+    display: grid;
+    place-items: center;
+}
+
+.section-center {
+    background: var.$colorWhite;
+    border-radius: var.$radius;
+    box-shadow: var.$lightShadow;
+    transition: var.$transition;
+    padding: 2 * $padding;
+
+    &:hover {
+        box-shadow: var.$darkShadow;
+    }
+}
+
+.alert {
+    display: grid;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 0.5 * $margin;
+    height: 0.85 * var.$lineHeight + rem;
+    font-size: 0.8 * $fontSize;
+    border-radius: 0.5 * var.$radius;
+    letter-spacing: var.$spacing;
+    text-transform: capitalize;
+
+    .alert-danger {
+        color: #721c24;
+        background: #f8d7da;
+    }
+
+    .alert-success {
+        color: #155724;
+        background: #d4edda;
+    }
+}
+
+.grocery-form {
+    h3 {
+        color: var.$colorPrimary-1;
+        margin-bottom: 0.75 * $margin;
+        text-align: center;
+    }
+
+    .form-control {
+        display: flex;
+        justify-content: center;
+
+        #grocery {
+            flex: 1 0 auto;
+            padding: 0.25 * $padding;
+            padding-left: $padding;
+            font-size: 1.2 * $fontSize;
+            color: var.$colorGrey-5;
+            background: var.$colorGrey-7;
+            border-top-left-radius: var.$radius;
+            border-bottom-left-radius: var.$radius;
+            border-color: transparent;
+
+            &::placeholder {
+                font-family: var.$fontSecondary;
+                color: var.$colorGrey-5;
+            }
+        }
+
+        .submit-btn {
+            flex: 0 0 5rem;
+            display: grid;
+            align-items: center;
+            padding: 0.25 * $padding;
+            font-size: $fontSize;
+            letter-spacing: var.$spacing;
+            text-transform: uppercase;
+            content: var.$colorPrimary-5;
+            background: var.$colorPrimary-7;
+            border-color: transparent;
+            border-top-left-radius: var.$radius;
+            border-bottom-left-radius: var.$radius;
+            transition: var.$transition;
+            cursor: pointer;
+
+            &:hover {
+                background: var.$colorPrimary-5;
+                color: var.$colorWhite;
+            }
+        }
+    }
+}
+
+.grocery-container {
+    visibility: hidden;
+    margin-top: $margin;
+    transition: var.$transition;
+
+    .show-container {
+        visibility: visible;
+    }
+
+    .grocery-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 0.25 * $margin;
+        padding: 0.25 * $padding $padding;
+        border-radius: var.$radius;
+        text-transform: uppercase;
+        transition: var.$transition;
+
+        &:hover {
+            color: var.$colorGrey-5;
+            background: var.$colorGrey-7;
+        }
+
+        &:hover .title {
+            color: var.$colorGrey-5;
+        }
+    }
+
+    .title {
+        margin-bottom: 0;
+        color: var.$colorGrey-1;
+        letter-spacing: var.$spacing;
+        transition: var.$transition;
+    }
+
+    .edit-btn,
+    .delete-btn {
+        margin: 0 0.075 * $margin;
+        font-size: 0.8 * $fontSize;
+        background: transparent;
+        border-color: transparent;
+        transition: var.$transition;
+        cursor: pointer;
+    }
+
+    .edit-btn {
+        color: var.$colorLightGreen;
+
+        &:hover {
+            color: var.$colorDarkGreen;
+        }
+    }
+
+    .delete-btn {
+        color: var.$colorLightRed;
+
+        &:hover {
+            color: var.$colorDarkRed;
+        }
+    }
+
+    .clear-btn {
+        display: grid;
+        align-items: center;
+        margin: 0.625 * $margin auto 0;
+        width: 10rem;
+        height: var.$lineHeight + rem;
+        font-size: $fontSize;
+        text-transform: uppercase;
+        color: var.$colorLightRed;
+        letter-spacing: var.$spacing;
+        background: transparent;
+        border-color: transparent;
+        transition: var.$transition;
+        cursor: pointer;
+
+        &:hover {
+            color: var.$colorDarkRed;
+        }
+    }
+}
