@@ -35,7 +35,6 @@ function displayAlert(text, action) {
     alert.classList.add('alert');
     alert.classList.add(`alert-${action}`);
 
-    // remove alert
     setTimeout(function () {
         alert.textContent = '';
         alert.classList.remove(`alert-${action}`);
@@ -50,9 +49,11 @@ const clearItems = () => {
             list.removeChild(item);
         });
     }
+
     container.classList.remove('show-container');
     displayAlert('Now list is empty!', 'danger');
     setBackToDefault();
+
     localStorage.removeItem('list');
 };
 
@@ -67,6 +68,7 @@ const deleteItem = (e) => {
     }
     displayAlert('Item removed', 'danger');
     setBackToDefault();
+
     removeFromLocalStorage(id);
 };
 
@@ -124,9 +126,9 @@ const setupItems = () => {
     }
 };
 
+window.addEventListener('DOMContentLoaded', setupItems);
 form.addEventListener('submit', addItem);
 clearBtn.addEventListener('click', clearItems);
-window.addEventListener('DOMContentLoaded', setupItems);
 
 // LOCAL STORAGE
 

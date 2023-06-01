@@ -1,0 +1,10 @@
+@mixin button {
+    font-size: $fontSize;
+    transition: var.$transition;
+    cursor: pointer;
+}
+
+@mixin flex {
+    display: flex;
+    align-items: center;
+}
