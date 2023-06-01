@@ -1,5 +1,5 @@
 @use './variables.scss' as var;
-@import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;700&display=swap');
 
 $fontSize: 0.875rem;
 
@@ -17,7 +17,7 @@ $height: 100vh;
 }
 
 body {
-    font-family: var.$fontSecondary;
+    font-family: var.$fontFamily;
     background: var.$colorBlack;
     color: var.$colorWhite;
     line-height: var.$lineHeight;
@@ -37,9 +37,9 @@ h2,
 h3,
 h4 {
     margin-bottom: 0.75rem;
-    text-transform: capitalize;
+    text-transform: uppercase;
     letter-spacing: var.$spacing;
-    font-family: var.$fontPrimary;
+    font-family: var.$fontFamily;
     line-height: 0.825 * var.$lineHeight;
 }
 
@@ -63,33 +63,28 @@ p {
     font-size: 1.5 * $fontSize;
 }
 
-.btn {
-    display: inline-block;
-    padding: 0.375 * $padding 0.75 * $padding;
-    text-transform: uppercase;
-    font-size: $fontSize;
-    color: var.$colorBlack;
-    letter-spacing: var.$spacing;
-    transition: var.$transition;
-    border: 2px solid var.$colorBlack;
-    border-radius: var.$radius;
-    box-shadow: var.$darkShadow;
-    background: transparent;
-    cursor: pointer;
+// .btn {
+//     display: inline-block;
+//     padding: 0.375 * $padding 0.75 * $padding;
+//     text-transform: uppercase;
+//     font-size: $fontSize;
+//     color: var.$colorBlack;
+//     letter-spacing: var.$spacing;
+//     transition: var.$transition;
+//     border: 2px solid var.$colorBlack;
+//     border-radius: var.$radius;
+//     box-shadow: var.$darkShadow;
+//     background: transparent;
+//     cursor: pointer;
 
-    &:hover {
-        color: var.$colorWhite;
-        background: var.$colorBlack;
-    }
-}
+//     &:hover {
+//         color: var.$colorWhite;
+//         background: var.$colorBlack;
+//     }
+// }
 
 .section {
     padding: 5 * $padding 0;
-}
-
-.section-center {
-    width: 0.9 * $width;
-    margin: 4 * $margin auto 0;
 }
 
 main {
@@ -99,6 +94,9 @@ main {
 }
 
 .section-center {
+    width: 0.9 * $width;
+    max-width: 0.5 * $width;
+    margin: 4 * $margin auto 0;
     background: var.$colorWhite;
     border-radius: var.$radius;
     box-shadow: var.$lightShadow;
@@ -116,27 +114,29 @@ main {
     text-align: center;
     margin-bottom: 0.5 * $margin;
     height: 0.85 * var.$lineHeight + rem;
-    font-size: 0.8 * $fontSize;
+    font-size: $fontSize;
     border-radius: 0.5 * var.$radius;
     letter-spacing: var.$spacing;
-    text-transform: capitalize;
+    text-transform: uppercase;
+}
 
-    .alert-danger {
-        color: #721c24;
-        background: #f8d7da;
-    }
+.alert-danger {
+    color: var.$colorDarkRed;
+    background: var.$colorLightRed;
+}
 
-    .alert-success {
-        color: #155724;
-        background: #d4edda;
-    }
+.alert-success {
+    color: var.$colorDarkGreen;
+    background: var.$colorLightGreen;
 }
 
 .grocery-form {
-    h3 {
+    h2 {
         color: var.$colorPrimary-1;
         margin-bottom: 0.75 * $margin;
         text-align: center;
+        color: var.$colorDarkGreen;
+        letter-spacing: var.$spacing;
     }
 
     .form-control {
@@ -153,31 +153,32 @@ main {
             border-top-left-radius: var.$radius;
             border-bottom-left-radius: var.$radius;
             border-color: transparent;
+            outline: none;
 
             &::placeholder {
-                font-family: var.$fontSecondary;
+                font-family: var.$fontFamily;
                 color: var.$colorGrey-5;
             }
         }
 
         .submit-btn {
-            flex: 0 0 5rem;
             display: grid;
             align-items: center;
+            flex: 0 0 5rem;
             padding: 0.25 * $padding;
             font-size: $fontSize;
             letter-spacing: var.$spacing;
             text-transform: uppercase;
             content: var.$colorPrimary-5;
-            background: var.$colorPrimary-7;
+            background: var.$colorLightGreen;
             border-color: transparent;
-            border-top-left-radius: var.$radius;
-            border-bottom-left-radius: var.$radius;
+            border-top-right-radius: var.$radius;
+            border-bottom-right-radius: var.$radius;
             transition: var.$transition;
             cursor: pointer;
 
             &:hover {
-                background: var.$colorPrimary-5;
+                background: var.$colorDarkGreen;
                 color: var.$colorWhite;
             }
         }
@@ -185,13 +186,9 @@ main {
 }
 
 .grocery-container {
-    visibility: hidden;
     margin-top: $margin;
     transition: var.$transition;
-
-    .show-container {
-        visibility: visible;
-    }
+    visibility: hidden;
 
     .grocery-item {
         display: flex;
@@ -265,4 +262,8 @@ main {
             color: var.$colorDarkRed;
         }
     }
+}
+
+.show-container {
+    visibility: visible;
 }
