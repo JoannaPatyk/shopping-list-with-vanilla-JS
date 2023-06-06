@@ -92,11 +92,12 @@ main {
 .alert {
     @include flex;
     text-align: center;
-    margin-bottom: 0.5 * $margin;
-    height: 0.85 * var.$lineHeight + rem;
-    font-size: $fontSize;
+    padding-left: 2 * $padding;
+    margin: 0.5 * $margin auto 0.5 * $margin auto;
+    height: 1.2 * var.$lineHeight + rem;
+    width: 0.5 * $width;
+    font-size: 1.2 * $fontSize;
     border-radius: 0.5 * var.$radius;
-    letter-spacing: var.$spacing;
     text-transform: uppercase;
 }
 
@@ -117,6 +118,7 @@ main {
         text-align: center;
         color: var.$colorPrimary-1;
         letter-spacing: var.$spacing;
+        text-shadow: 0 0 5px var.$colorPrimary-1;
     }
 
     .form-control {
@@ -138,7 +140,7 @@ main {
             &::placeholder {
                 font-family: var.$fontFamily;
                 color: var.$colorGrey-5;
-                letter-spacing: var.$spacing;
+                letter-spacing: 0.25 * var.$spacing;
             }
 
             &:focus {
@@ -158,6 +160,7 @@ main {
             border-color: transparent;
             border-top-right-radius: var.$radius;
             border-bottom-right-radius: var.$radius;
+            box-shadow: 0 0 5px var.$colorPrimary-1;
 
             @include button;
 
